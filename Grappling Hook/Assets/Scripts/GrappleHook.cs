@@ -2,29 +2,21 @@ using UnityEngine;
 
 public class GrappleHook : MonoBehaviour
 {
-
+    public float springNum, damperNum, massNum;
     private LineRenderer lr;
     private Vector3 grapplePoint;
+    private Quaternion orginGunPos;
     public LayerMask whatIsGrappleable;
     public Transform gunTip, camera, player;
     private float maxDistance = 100f;
     private SpringJoint joint;
+    private bool grappling = false;
+
 
     void Awake()
     {
         lr = GetComponent<LineRenderer>();
-    }
-
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            StartGrapple();
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            StopGrapple();
-        }
+        orginGunPos = this.transform.rotation;
     }
 
     //Called after Update
@@ -33,10 +25,18 @@ public class GrappleHook : MonoBehaviour
         DrawRope();
     }
 
+    private void Update()
+    {
+      //  if(grappling)
+      //  {
+      //      this.transform.LookAt(grapplePoint);
+      //  }
+     //   else this.transform.localRotation = orginGunPos;
+    }
     /// <summary>
     /// Call whenever we want to start a grapple
     /// </summary>
-    void StartGrapple()
+    public void StartGrapple()
     {
         RaycastHit hit;
         if (Physics.Raycast(camera.position, camera.forward, out hit, maxDistance, whatIsGrappleable))
@@ -49,16 +49,17 @@ public class GrappleHook : MonoBehaviour
             float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
 
             //The distance grapple will try to keep from grapple point. 
-            joint.maxDistance = distanceFromPoint * 0.8f;
-            joint.minDistance = distanceFromPoint * 0.25f;
+            //joint.maxDistance = distanceFromPoint;
+            //joint.minDistance = distanceFromPoint;
 
             //Adjust these values to fit your game.
-            joint.spring = 100f;
-            joint.damper = 7f;
-            joint.massScale = 4.5f;
+            joint.spring = springNum;
+            joint.damper = damperNum;
+            joint.massScale = massNum;
 
             lr.positionCount = 2;
             currentGrapplePosition = gunTip.position;
+            grappling = true;
         }
     }
 
@@ -66,10 +67,11 @@ public class GrappleHook : MonoBehaviour
     /// <summary>
     /// Call whenever we want to stop a grapple
     /// </summary>
-    void StopGrapple()
+    public void StopGrapple()
     {
         lr.positionCount = 0;
         Destroy(joint);
+        grappling = false;
     }
 
     private Vector3 currentGrapplePosition;

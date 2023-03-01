@@ -120,6 +120,11 @@
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll"
+-r:"Assets/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll"
+-r:"Assets/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll"
+-r:"Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll"
+-r:"Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll"
 -r:"E:/git/GrapplingHook/Grappling Hook/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll"
 -r:"E:/git/GrapplingHook/Grappling Hook/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll"
 -r:"E:/git/GrapplingHook/Grappling Hook/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
@@ -353,6 +358,13 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
+"Assets/ProCore/ProBuilder/API Examples/Icosphere FFT/Scripts/CameraControls.cs"
+"Assets/ProCore/ProBuilder/API Examples/Icosphere FFT/Scripts/IcoBumpin.cs"
+"Assets/ProCore/ProBuilder/API Examples/Misc/HueCube.cs"
+"Assets/ProCore/ProBuilder/API Examples/Procedural Mesh/ExtrudeRandomEdges.cs"
+"Assets/ProCore/ProBuilder/API Examples/Runtime Editing/RuntimeEdit.cs"
+"Assets/ProCore/ProBuilder/API Examples/Vertex Colors/HighlightNearestFace.cs"
+"Assets/Scripts/GrappleGunInitializer.cs"
 "Assets/Scripts/GrappleHook.cs"
 "Assets/Scripts/MoveCamera.cs"
 "Assets/Scripts/PlayerMovement.cs"
